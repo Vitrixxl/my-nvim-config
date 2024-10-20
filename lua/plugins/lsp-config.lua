@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "cssls" },
+        ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "cssls", "rust_analyzer" },
         automatic_installation = true,
       })
     end,
@@ -32,6 +32,9 @@ return {
       })
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
+      })
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities
       })
       -- Mappages de touches LSP
       local format = function()
